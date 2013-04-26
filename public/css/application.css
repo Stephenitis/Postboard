@@ -1,0 +1,44 @@
+.container {
+  margin: 0 auto;
+  width: 600px;
+  padding: 0 0 0 110px;
+  background-color: white;
+}
+th {
+  text-align: left;
+}
+body{
+  float: left;
+
+  /*background-image: url('/img/green.jpg')*/
+}
+nav{
+  background-color: black;
+  position: fixed;
+  width:90px;
+  height: 100%;
+  float: left;
+}
+nav h1{
+  float:left;
+  padding: 10px 0 0 20px;
+  color: white;
+  font-size: 20px;
+}
+nav ul{
+  float:left;
+}
+nav li{
+  text-decoration: none;
+}
+nav a{
+  text-decoration: none;
+  color: white;
+}
+.dostuff{
+  border-top: 5px solid black
+}
+
+.post{
+  border-bottom: 2px dotted black
+}
