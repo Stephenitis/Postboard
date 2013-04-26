@@ -1,12 +1,17 @@
 get '/posts/new' do
+  @post = Post.new
   erb :create_post
 end
 
 post '/posts/create' do
-  puts params.inspect
-  @post = Post.create(params[:posts])
-  @message = "message created"
-  redirect to "/posts/#{@post.id}"
+  # TODO: Handle errors
+  @post = Post.new(params[:posts])
+  if @post.save
+    @message = "message created"
+    redirect to "/posts/#{@post.id}"
+  else
+    erb :create_post
+  end
 end
 
 get '/posts/:post_id' do
@@ -22,10 +27,13 @@ get '/posts/:post_id/edit' do
   # if post is successfully updated
   # => clear tag ids
   # => recreate tags
+
+  erb :update_post
 end
 
 #put?title=&body=
 put '/posts/:post_id/update' do
+  p params
   erb :update_post
 end
 

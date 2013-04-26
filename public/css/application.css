@@ -15,9 +15,7 @@ body{
 nav{
   background-color: black;
   position: fixed;
-  width:90px;
-  height: 100%;
-  float: left;
+  width:100%;
 }
 nav h1{
   float:left;
@@ -25,6 +23,11 @@ nav h1{
   color: white;
   font-size: 20px;
 }
+nav p{
+  color: white;
+  float:left;
+}
+
 nav ul{
   float:left;
 }

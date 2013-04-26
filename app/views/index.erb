@@ -1,13 +1,14 @@
 <div class="container">
-  <h1>Welcome to the PostBoard!</h1>
-  <p>The only place to share your mind freely.</p>
+
   <div class="dostuff">
     <h2>recent things on people's minds</h2>
     <% Post.all.each do |post| %>
     <div class="post">
       <h3><%= post.title %> </h3>
       <p><%= post.body %></p>
-      <footer>tags:  <%= post.tags %></br>
+      <footer>tags: <%= post.tags.map(&:tag_name).join(', ') %></br>
+        <a href ="/posts/<%=post.id%>/edit"> Edit Post </a>
+      </footer>
     </div>
     <% end %>
   </div>
