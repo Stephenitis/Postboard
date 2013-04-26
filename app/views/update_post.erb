@@ -1,9 +1,23 @@
 <div class="container">
-  <header class="content">
-    <h1> Update Your Blog Post</h1>
-  <form action="put" method="/post/update">
-    <input type="text" placeholder="title of post" name="title"></br>
-    <textarea type="text" name="body" placeholder="your post area" rows="8" cols="60"></textarea>
-    <input type="submit" value="Toss it on the internetz">
-  </form>
+  <header class="content"></header>
+  <h1> Update Your Blog Post</h1>
+  <div class="dostuff">
+    <% Post.all.each do |post| %>
+    <div class="post">
+      <h3><%= post.title %> </h3>
+      <p><%= post.body %></p>
+      <footer>tags: <%= post.tags.map(&:tag_name).join(', ') %></br>
+        <a href ="/posts/<%=post.id%>/edit"> Edit Post </a>
+      </footer>
+    </div>
+    <% end %>
+
+    <h2>Edit your post</h2>
+    <form action="/posts/create" method="post">
+      <input type="text" placeholder="title of post" name="posts[title]" value ="<%= @post.title %>"></br>
+      <textarea type="text" name="posts[body]" placeholder="your post area" rows="8" cols="60"><%= @post.body %></textarea>
+      <input type="text" placeholder="name a tag" name="posts[tag_names]" value ="<%= @post.tag_names %>"></br>
+      <input type="submit" value="Post" >
+    </form>
+  </div>
 </div>

@@ -22,6 +22,10 @@ end
 
 
 get '/posts/:post_id/edit' do
+   p params
+  "hello"
+  @post = Post.find(params[:post_id])
+  @post
   # find the post
   # update the post
   # if post is successfully updated
@@ -34,6 +38,7 @@ end
 #put?title=&body=
 put '/posts/:post_id/update' do
   p params
-  erb :update_post
+  "hello"
+  # erb :update_post
 end
 
